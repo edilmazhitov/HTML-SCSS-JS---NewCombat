@@ -6,16 +6,21 @@ class Combat {
     updateCount: '[data-js-add-count]',
     rebirthCount: '[data-js-rebirth-count]',
     rebirthBtn: '[data-js-rebirth-btn]',
+    rebirthPrice: '[data-js-rebirth-price]',
   }
 
   constructor() {
     this.balanceStorage = Number(localStorage.getItem('balance')) || 0
     this.addPlus = Number(localStorage.getItem('addPlus')) || 1
+
     this.rebirth = Number(localStorage.getItem('rebirth')) || 0
+    this.rebirthPrice = Number(localStorage.getItem('rebirthPrice')) || 100
+
     this.balance = document.querySelector(this.selectors.balance)
     this.plusBtn = document.querySelector(this.selectors.plus)
     this.updateBtn = document.querySelector(this.selectors.update)
     this.updateCountText = document.querySelector(this.selectors.updateCount)
+    this.rebirthPriceTitle = document.querySelector(this.selectors.rebirthPrice)
 
     this.rebirthCount = document.querySelector(this.selectors.rebirthCount)
     this.rebirthBtn = document.querySelector(this.selectors.rebirthBtn)
@@ -51,27 +56,31 @@ class Combat {
     })
   }
 
+
   rebirthFunction() {
     this.rebirthBtn.addEventListener('click', () => {
-      if (this.addPlus >= 10 && this.balanceStorage >= 100) {
+      if (this.addPlus >= 10 && this.balanceStorage >= this.rebirthPrice) {
         this.addPlus = 1
         this.balanceStorage = 0
-        this.addPlus = 0
         this.rebirth++
-
+        this.rebirthPrice = this.rebirthPrice * 2
         localStorage.setItem('balance', this.balanceStorage)
         localStorage.setItem('addPlus', this.addPlus)
+        localStorage.setItem("rebirthPrice", this.rebirthPrice)
         localStorage.setItem('rebirth', this.rebirth)
         this.render()
+        return
       }
 
       alert('Недостаточно средств для ребиртка')
     })
   }
 
+
   render() {
     this.balance.textContent = this.balanceStorage
     this.updateCountText.textContent = this.addPlus
+    this.rebirthPriceTitle.textContent = this.rebirthPrice
   }
 }
 
