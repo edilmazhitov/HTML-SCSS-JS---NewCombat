@@ -3,3 +3,12 @@
   margin: 0 auto;
   padding: 0 20px;
 }
+
+:root {
+  --blue-color-gradient: linear-gradient(to bottom, #ff6ec7,  #1e3c72);
+  --color-light: #FFFFFF;
+  --color-dark: #000000;
+  --color-primary: linear-gradient(to bottom, #1e3c72, #ff6ec7);
+  --color-to-primary: linear-gradient(to bottom, #ff6ec7, #1e3c72);
+  --color-bg: #1e8cab
+}

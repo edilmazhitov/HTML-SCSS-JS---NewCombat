@@ -1,7 +1,8 @@
+
 class Combat {
   selectors = {
     balance: '[data-js-balance]',
-    plus: '[data-js-plus]',
+    plus: '[data-js-game-button]',
     update: '[data-js-add-new]',
     updateCountPrice: '[data-js-add-new-price]',
     updateCount: '[data-js-add-count]',
@@ -35,64 +36,68 @@ class Combat {
     this.render()
   }
 
+
+
+  addCountFunction() {
+    this.updateBtn.addEventListener('click', this.clickSystem)
+  }
+  rebirthFunction() {
+    this.rebirthBtn.addEventListener('click',this.rebirthSystem)
+  }
   plusFunction() {
-    this.plusBtn.addEventListener('click', () => {
-      this.balanceStorage += this.addPlus
-      if (this.balance) {
-        this.balance.textContent = this.balanceStorage
-      }
-      localStorage.setItem('balance', this.balanceStorage)
-    })
+    this.plusBtn.addEventListener('click', this.plusSystem)
     this.render()
   }
 
-  addCountFunction() {
-    this.updateBtn.addEventListener('click', () => {
-      if (this.balanceStorage >= this.addPlusPrice) {
-
-        this.addPlus += 1 + Math.floor(this.rebirth * 0.5)
-
-        this.balanceStorage -= this.addPlusPrice
-
-        if (this.addPlus <= 10) {
-          this.addPlusPrice += 20 * 2
-        } else if (this.addPlus <= 20) {
-          this.addPlusPrice += 20 * 3
-        } else {
-          this.addPlusPrice += 20 * 4
-        }
-
-        localStorage.setItem('addPlusPrice', this.addPlusPrice)
-        localStorage.setItem('addPlus', this.addPlus)
-        localStorage.setItem('balance', this.balanceStorage)
-        this.updateCountText.textContent = this.addPlus
-        this.render()
-      }
-    })
+  plusSystem = () => {
+    this.balanceStorage += this.addPlus
+    if (this.balance) {
+      this.balance.textContent = this.balanceStorage
+    }
+    localStorage.setItem('balance', this.balanceStorage)
   }
+  clickSystem = () => {
+    if (this.balanceStorage >= this.addPlusPrice) {
 
-  rebirthFunction() {
-    this.rebirthBtn.addEventListener('click', () => {
-      if (this.addPlus >= this.rebirthAddPlusMust && this.balanceStorage >= this.rebirthPrice) {
-        this.addPlus = 1
-        this.balanceStorage = 0
-        this.rebirth++
-        this.rebirthPrice = this.rebirth >= 1 ? Math.round(this.rebirthPrice + this.rebirthPrice * 3) : this.rebirthPrice * 2
-        this.rebirthAddPlusMust = Math.round(this.rebirthAddPlusMust * 1.5)
-        this.addPlusPrice = 20;
+      this.addPlus += 1 + Math.floor(this.rebirth * 0.5)
 
-        localStorage.setItem('balance', this.balanceStorage)
-        localStorage.setItem('addPlus', this.addPlus)
-        localStorage.setItem("rebirthPrice", this.rebirthPrice)
-        localStorage.setItem("rebirthAddPlusMust", this.rebirthAddPlusMust)
-        localStorage.setItem('rebirth', this.rebirth)
-        localStorage.setItem("addPlusPrice", this.addPlusPrice)
-        this.render()
-        return
+      this.balanceStorage -= this.addPlusPrice
+
+      if (this.addPlus <= 10) {
+        this.addPlusPrice += 20 * 2
+      } else if (this.addPlus <= 20) {
+        this.addPlusPrice += 20 * 3
+      } else {
+        this.addPlusPrice += 20 * 4
       }
 
-      alert('Недостаточно средств для ребиртка')
-    })
+      localStorage.setItem('addPlusPrice', this.addPlusPrice)
+      localStorage.setItem('addPlus', this.addPlus)
+      localStorage.setItem('balance', this.balanceStorage)
+      this.updateCountText.textContent = this.addPlus
+      this.render()
+    }
+  }
+  rebirthSystem = () => {
+    if (this.addPlus >= this.rebirthAddPlusMust && this.balanceStorage >= this.rebirthPrice) {
+      this.addPlus = 1
+      this.balanceStorage = 0
+      this.rebirth++
+      this.rebirthPrice = this.rebirth >= 1 ? Math.round(this.rebirthPrice + this.rebirthPrice * 3) : this.rebirthPrice * 2
+      this.rebirthAddPlusMust = Math.round(this.rebirthAddPlusMust * 1.5)
+      this.addPlusPrice = 20;
+
+      localStorage.setItem('balance', this.balanceStorage)
+      localStorage.setItem('addPlus', this.addPlus)
+      localStorage.setItem("rebirthPrice", this.rebirthPrice)
+      localStorage.setItem("rebirthAddPlusMust", this.rebirthAddPlusMust)
+      localStorage.setItem('rebirth', this.rebirth)
+      localStorage.setItem("addPlusPrice", this.addPlusPrice)
+      this.render()
+      return
+    }
+
+    alert('Недостаточно средств для ребиртка')
   }
 
   render() {

@@ -11,30 +11,61 @@
     <link rel="stylesheet" href="./styles/styles.css" />
   </head>
   <body>
+    <!--    <header class="header">-->
+    <!--      <div class="container">-->
+    <!--        <div class="block">-->
+    <!--          <div class="header__left">-->
+    <!--            <h1 class="header__title">NewCombat</h1>-->
+    <!--          </div>-->
+    <!--          <div class="header__right">-->
+    <!--            <button >PLUS</button>-->
+    <!--            <h2>Деньги за клик: <span data-js-add-count></span></h2>-->
+    <!--            <h2>стоимость прокачки клика <span data-js-add-new-price></span></h2>-->
+    <!--            <button data-js-add-new>ADD 1</button>-->
+
+    <!--            <h2>Цена ребиртка: <span data-js-rebirth-price></span> и кол-во деньги за клик: <span data-js-click></span></h2>-->
+    <!--            <h2 ></h2>-->
+    <!--            <button data-js-rebirth-btn>ADD 1</button>-->
+    <!--          </div>-->
+    <!--        </div>-->
+    <!--      </div>-->
+    <!--    </header>-->
+
     <header class="header">
       <div class="container">
-        <div class="block">
+        <div class="header__block">
           <div class="header__left">
             <h1 class="header__title">NewCombat</h1>
           </div>
           <div class="header__right">
-            <h2 class="header__balance balance">
-              Баланс: <br />
-              <span data-js-balance>0</span>
+            <h2 class="header__rebirth rebirth">
+              Ребиртки: <span  data-js-rebirth-count>0</span>
             </h2>
-            <button data-js-plus>PLUS</button>
-            <h2>Деньги за клик: <span data-js-add-count></span></h2>
-            <h2>стоимость прокачки клика <span data-js-add-new-price></span></h2>
-            <button data-js-add-new>ADD 1</button>
-
-            <h2>РЕбиртки: <span data-js-rebirth-count></span></h2>
-            <h2>Цена ребиртка: <span data-js-rebirth-price></span> и кол-во деньги за клик: <span data-js-click></span></h2>
-            <h2 ></h2>
-            <button data-js-rebirth-btn>ADD 1</button>
           </div>
         </div>
       </div>
     </header>
+    <main class="main">
+      <section class="game">
+        <div class="container">
+          <div class="game__block">
+            <h2 class="game__balance">
+              Баланс: <br />
+              <span data-js-balance></span>
+            </h2>
+            <button class="game__button" data-js-game-button>
+              Кликай
+            </button>
+          </div>
+        </div>
+      </section>
+      <section class="upgrade">
+        <div class="container">
+          <button class="upgrade__button" data-js-add-new>Прокачат клик</button>
+          <button class="upgrade__button"></button>
+        </div>
+      </section>
+    </main>
 
     <script src="./scripts/main.js" defer></script>
   </body>

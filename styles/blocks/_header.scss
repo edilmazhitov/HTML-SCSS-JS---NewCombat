@@ -1,0 +1,22 @@
+.header {
+  background: var(--blue-color-gradient);
+  text-align: center;
+  height: 50px;
+
+  &__block {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+  }
+
+  &__title {
+    color: var(--color-light);
+  }
+
+  &__rebirth {
+    color: var(--color-dark);
+    span {
+      color: var(--color-light);
+    }
+  }
+}
