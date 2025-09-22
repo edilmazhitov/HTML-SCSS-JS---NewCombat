@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100..900&display=swap');
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
 .container {
   max-width: 1280px;
   margin: 0 auto;
@@ -5,10 +11,15 @@
 }
 
 :root {
-  --blue-color-gradient: linear-gradient(to bottom, #ff6ec7,  #1e3c72);
-  --color-light: #FFFFFF;
+  --blue-color-gradient: linear-gradient(to bottom, #ff6ec7, #1e3c72);
+  --color-light: #ffffff;
   --color-dark: #000000;
   --color-primary: linear-gradient(to bottom, #1e3c72, #ff6ec7);
-  --color-to-primary: linear-gradient(to bottom, #ff6ec7, #1e3c72);
-  --color-bg: #1e8cab
+  --color-to-primary: linear-gradient(
+    #1e3c72,
+    #ff6ec7,
+    var(--color-bg),
+    #1e3c72
+  );
+  --color-bg: #1e8cab;
 }

@@ -1,0 +1,29 @@
+.statistics {
+  &__title {
+    color: var(--color-light);
+    text-transform: uppercase;
+  }
+
+  &__block {
+    margin-top: 10px;
+    width: 500px;
+    height: 100px;
+    background: var(--color-to-primary);
+    border-radius: 16px;
+  }
+
+  &__box {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+  }
+
+  &__text {
+    font-weight: 600;
+    font-size: 18px;
+
+    span {
+      color: var(--color-light);
+    }
+  }
+}

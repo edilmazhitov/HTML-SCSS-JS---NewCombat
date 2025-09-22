@@ -1,5 +1,7 @@
 @use 'globals';
 @use 'normalize';
 
-@use './blocks/header';
-@use './blocks/game';
+@use 'blocks/header';
+@use 'blocks/game';
+@use 'blocks/update';
+@use 'blocks/statistics';
